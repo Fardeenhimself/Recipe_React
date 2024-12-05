@@ -10,20 +10,20 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchRecipes = async (searchQuery) => {
-    setLoading(true);
+    setLoading(false);
     setRecipes([]);
 
-    // try {
-    //   const res = await fetch(
-    //     `https://api.edamam.com/api/recipes/v2?app_id${APP_ID}&app_key${APP_KEY}&q=${searchQuery}&type=public`
-    //   );
-    //   const data = await res.json();
-    //   console.log(data);
-    // } catch (error) {
-    //   console.log(error.message);
-    // } finally {
-    //   // setLoading(false);
-    // }
+    try {
+      const res = await fetch(
+        `https://api.edamam.com/api/recipes/v2?app_id${APP_ID}&app_key${APP_KEY}&q=${searchQuery}&type=public`
+      );
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      // setLoading(false);
+    }
   };
   useEffect(() => {
     fetchRecipes("chicken");
@@ -36,16 +36,16 @@ const Home = () => {
             <Search size={24} />
             <input
               type="text"
-              className="text-sm md:text-base grow"
+              className="text-sm md:text-base grow font-sfr"
               placeholder="What do you want to cook today?"
             />
           </label>
         </form>
 
-        <p className="font-bold text-3xl md:text-5xl mt-4">
+        <p className="font-bold font-sfr text-3xl md:text-5xl mt-4">
           Recommended Recipes
         </p>
-        <p className="text-slate-500 font-semibold ml-1 my-2 text-sm tracking-tight">
+        <p className="text-slate-500 font-semibold font-sfr ml-1 my-2 text-sm tracking-tight">
           Popular Choices
         </p>
 

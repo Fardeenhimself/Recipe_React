@@ -6,6 +6,8 @@ export default {
     extend: {
       fontFamily: {
         parkinsans: "'Parkinsans', serif",
+        sfr: " 'SFR' ",
+        sfd: " ' SFD' ",
       },
     },
   },
